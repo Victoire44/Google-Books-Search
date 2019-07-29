@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import API from "../../utils/API";
-
+import React from "react";
 
 function Form(props){
 return (
+  <div className="container">
   <form>
     <div className="form-group">
       <label htmlFor="search">Book Search:</label>
@@ -16,11 +15,12 @@ return (
         placeholder="Search a Book"
         id="search"
       />
-      <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
+      <button onClick={props.handleFormSubmit} className="btn btn-dark mt-3">
         Search
         </button>
     </div>
   </form>
+  </div>
 );
 }
 
