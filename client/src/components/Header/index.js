@@ -4,9 +4,8 @@ import style from "./style.css";
 function Header() {
     return (
         <div className="jumbotron text-center">
-            <div className="container">
+            <div className="container text-light">
                 <h1>Google Books Search</h1>
-                <h2>Search for and save Books of Interest</h2>
             </div>
         </div>
     );
