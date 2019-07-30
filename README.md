@@ -1,11 +1,10 @@
 # Google Books Search
 
+![app](client/public/images/screenshot.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This is a React-based Google Books Search app where users can make a reasearches on books and save them to review or purchase later. 
-
-methods to query and display books based on user searches.
-B so that users can save books to review or purchase later.
 
 ## Technologie used
 
