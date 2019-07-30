@@ -5,7 +5,6 @@ import API from "../utils/API";
 class Saved extends Component {
     state = {
         savedBooks: [],
-
     }
 
     componentDidMount() {
@@ -31,12 +30,11 @@ class Saved extends Component {
         }
     };
 
-
-
     render() {
         return (
             <div className="container">
-                < div savedBooks={this.state.savedBooks}> </div>
+                {/* <  savedBooks={this.state.savedBooks}> */}
+                {/* </div> */}
             </div>
         )
     }
