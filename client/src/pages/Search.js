@@ -3,7 +3,6 @@ import Form from "../components/Form";
 import Results from "../components/Results";
 import API from "../utils/API";
 
-
 class Search extends React.Component {
     state = {
         value: "",
@@ -12,15 +11,23 @@ class Search extends React.Component {
 
     componentDidMount() {
         this.searchBook();
-      }
+    }
 
-    //   this.handleInputChange = this.handleInputChange.bind(this);
-    //   this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    makeBook = bookData => {
+        return {
+            _id: bookData.id,
+            title: bookData.volumeInfo.title,
+            authors: bookData.volumeInfo.authors,
+            description: bookData.volumeInfo.description,
+            image: bookData.volumeInfo.imageLinks.thumbnail,
+            link: bookData.volumeInfo.previewLink
+        }
+    }
 
     searchBook = query => {
         API.getBook(query)
-            .then(res => this.setState({ books: res.data.items }))
-            .catch(err => console.log(err));
+            .then(res => this.setState({ books: res.data.items.map(bookData => this.makeBook(bookData)) }))
+            .catch(err => console.error(err));
     };
 
     handleInputChange = event => {
@@ -36,17 +43,18 @@ class Search extends React.Component {
         this.searchBook(this.state.search);
     };
 
-
     render() {
-        console.log("this.state.books: " + this.state.books)
         return (
             <div>
-                <Form 
-                search={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
+                <Form
+                    search={this.state.search}
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
                 />
-                <Results books={this.state.books} />
+                <div className="container">
+                    <h2>Results</h2>
+                    <Results books={this.state.books} />
+                </div>
             </div>
         )
     }
